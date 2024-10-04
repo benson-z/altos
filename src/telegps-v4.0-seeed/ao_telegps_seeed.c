@@ -21,6 +21,10 @@
 #include <ao_exti.h>
 #include <ao_tracker.h>
 
+#define AO_FAIL_FLASH	1
+#define AO_FAIL_ADC	2
+#define AO_FAIL_GPS	3
+
 static void
 ao_validate(void)
 {
@@ -34,7 +38,7 @@ ao_validate(void)
 	/* Check the flash part */
 	ao_storage_setup();
 	if (ao_storage_total != 2 * 1024 * 1024)
-		ao_panic(AO_PANIC_FLASH);
+		ao_panic(AO_FAIL_FLASH);
 
 	/* Check the battery voltage */
 	data = ao_data_head;
@@ -43,7 +47,7 @@ ao_validate(void)
 	} while (ao_data_head == data);
 	decivolt = ao_battery_decivolt(ao_data_ring[data].adc.v_batt);
 	if (decivolt < 35 && 55 < decivolt)
-		ao_panic(AO_PANIC_ADC);
+		ao_panic(AO_FAIL_ADC);
 
 	/* Check to make sure GPS data is being received */
 	gps_start = ao_time();
@@ -63,9 +67,10 @@ ao_validate(void)
 				break;
 		}
 		if ((AO_TICK_SIGNED) (ao_time() - gps_start) > (AO_TICK_SIGNED) AO_SEC_TO_TICKS(10))
-			ao_panic(AO_PANIC_CRASH);
+			ao_panic(AO_FAIL_GPS);
 	}
 	ao_led_on(LEDS_AVAILABLE);
+	ao_exit();
 }
 
 struct ao_task ao_validate_task;
