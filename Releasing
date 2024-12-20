@@ -126,7 +126,7 @@ These are Bdale's notes on how to do a release.
 	   src/telemega-v[1-6].0/{*.elf,*.ihx,*.map} \
 	   src/telemetrum-v[2-4].0/{*.elf,*.ihx,*.map} \
 	   src/telemini-v3.0/{*.elf,*.ihx,*.map} \
-	   src/telelco-v2.0/{*.elf,*.ihx,*.map} \
+	   src/telelco-v[2-3].0/{*.elf,*.ihx,*.map} \
 	   src/telefireeight-v[1-2].0/{*.elf,*.ihx,*.map} \
 	   ~/altusmetrumllc/Binaries/
 	cp src/chaoskey-v1.0/flash-loader/{*.elf,*.bin,*.map} \
@@ -140,7 +140,7 @@ These are Bdale's notes on how to do a release.
 	   src/telemega-v[1-6].0/flash-loader/*.elf \
 	   src/telemetrum-v[2-4].0/flash-loader/*.elf \
 	   src/telemini-v3.0/flash-loader/{*.elf,*.bin,*.map} \
-	   src/telelco-v2.0/flash-loader/*.elf \
+	   src/telelco-v[2-3].0/flash-loader/*.elf \
 	   src/telefireeight-v[1-2].0/flash-loader/*.elf \
 	   ~/altusmetrumllc/Binaries/loaders/
 	(cd ~/altusmetrumllc ; git add Binaries ; git commit -a) 
