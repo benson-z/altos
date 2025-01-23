@@ -24,6 +24,7 @@
 #define AO_FAIL_FLASH	1
 #define AO_FAIL_ADC	2
 #define AO_FAIL_GPS	3
+#define AO_FAIL_RADIO	4
 
 static void
 ao_validate(void)
@@ -69,6 +70,10 @@ ao_validate(void)
 		if ((AO_TICK_SIGNED) (ao_time() - gps_start) > (AO_TICK_SIGNED) AO_SEC_TO_TICKS(10))
 			ao_panic(AO_FAIL_GPS);
 	}
+
+	if (!ao_radio_post())
+		ao_panic(AO_FAIL_RADIO);
+
 	ao_led_on(LEDS_AVAILABLE);
 	ao_exit();
 }
