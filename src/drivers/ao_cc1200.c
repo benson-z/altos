@@ -1456,6 +1456,22 @@ static const struct ao_cmds ao_radio_cmds[] = {
 	{ 0, NULL }
 };
 
+/* Make sure the radio is alive */
+bool
+ao_radio_post(void)
+{
+	uint8_t	partnum;
+
+	partnum = ao_radio_reg_read(CC1200_PARTNUMBER);
+	switch (partnum) {
+	case CC1200_PARTNUMBER_CC1200:
+	case CC1200_PARTNUMBER_CC1201:
+		return true;
+	default:
+		return false;
+	}
+}
+
 void
 ao_radio_init(void)
 {

@@ -667,6 +667,9 @@ ao_radio_test_on(void);
 void
 ao_radio_test_off(void);
 
+bool
+ao_radio_post(void);
+
 void
 ao_radio_init(void);
 
