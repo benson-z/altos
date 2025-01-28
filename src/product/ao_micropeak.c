@@ -85,6 +85,7 @@ main(void)
 	for (;;) {
 		cli();
 #pragma GCC diagnostic ignored "-Wconversion"
+#pragma GCC diagnostic ignored "-Wsign-conversion"
 		set_sleep_mode((uint8_t) SLEEP_MODE_PWR_DOWN);
 		sleep_mode();
 	}
