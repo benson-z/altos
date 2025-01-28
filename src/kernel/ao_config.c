@@ -56,6 +56,10 @@ uint8_t ao_force_freq;
 #define AO_CONFIG_DEFAULT_PYRO_TIME	AO_MS_TO_TICKS(50)
 #define AO_CONFIG_DEFAULT_RADIO_10MW	0
 #define AO_CONFIG_DEFAULT_REPORT_FEET	0
+#ifndef AO_CONFIG_DEFAULT_ACCEL_PLUS_G
+#define AO_CONFIG_DEFAULT_ACCEL_PLUS_G	0
+#define AO_CONFIG_DEFAULT_ACCEL_MINUS_G	0
+#endif
 #if HAS_CONFIG_SAVE
 #ifndef USE_INTERNAL_FLASH
 #error Please define USE_INTERNAL_FLASH
@@ -155,8 +159,8 @@ _ao_config_get(void)
 			ao_config.apogee_delay = AO_CONFIG_DEFAULT_APOGEE_DELAY;
 		/* Fixups for minor version 2 */
 		if (minor < 2) {
-			ao_config.accel_plus_g = 0;
-			ao_config.accel_minus_g = 0;
+			ao_config.accel_plus_g = AO_CONFIG_DEFAULT_ACCEL_PLUS_G;
+			ao_config.accel_minus_g = AO_CONFIG_DEFAULT_ACCEL_MINUS_G;
 		}
 		/* Fixups for minor version 3 */
 #if HAS_RADIO
