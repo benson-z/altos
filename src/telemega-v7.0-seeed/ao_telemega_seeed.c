@@ -126,7 +126,7 @@ ao_validate(void)
 	if (ao_ground_height < -1000 || ao_ground_height > 7000)
 		ao_panic(AO_FAIL_BARO);
 
-	ao_led_on(LEDS_AVAILABLE);
+	ao_led_on(AO_LED_GREEN);
 	ao_beep_for(AO_BEEP_MID_DEFAULT, AO_MS_TO_TICKS(100));
 
 	ao_exit();
