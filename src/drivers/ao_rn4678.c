@@ -345,6 +345,7 @@ ao_rn_isr(void)
 	ao_wakeup(&ao_rn_connected);
 }
 
+#ifndef ao_bt_panic
 static void
 ao_bt_panic(int where)
 {
@@ -361,6 +362,7 @@ ao_bt_panic(int where)
 		}
 	}
 }
+#endif
 
 static uint8_t	ao_rn_stdio;
 
