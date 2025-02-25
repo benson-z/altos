@@ -74,7 +74,7 @@ AC_ARG_WITH(jvm, AS_HELP_STRING([--with-jvm=PATH],
 
 if test "x$JVM" = "xauto"; then
 	AC_MSG_CHECKING([JVM])
-	for jvm in default-java java-6-openjdk java-7-openjdk java-8-openjdk java-9-openjdk java-10-openjdk java-11-openjdk java-12-openjdk java-13-openjdk java-6-sun java-8-openjdk-amd64; do
+	for jvm in default-java java-8-openjdk java-9-openjdk java-10-openjdk java-11-openjdk java-12-openjdk java-13-openjdk java-8-openjdk-amd64; do
 		if test "x$JVM" = "xauto"; then
 			INCLUDE="/usr/lib/jvm/$jvm/include"
 			if test -f "$INCLUDE"/jni.h; then
@@ -88,9 +88,9 @@ if test "x$JVM" = "xauto"; then
 	AC_MSG_RESULT([$JVM])
 fi
 
-AC_ARG_WITH(java-version, AS_HELP_STRING([--with-java-version=7],
-					 [Set java language compatibility version (default is 7)]),
-	   [JAVA_VERSION=$withval], [JAVA_VERSION=7])
+AC_ARG_WITH(java-version, AS_HELP_STRING([--with-java-version=8],
+					 [Set java language compatibility version (default is 8)]),
+	   [JAVA_VERSION=$withval], [JAVA_VERSION=8])
 
 JAVAC="$JVM"/bin/javac
 JAVA="$JVM"/bin/java
