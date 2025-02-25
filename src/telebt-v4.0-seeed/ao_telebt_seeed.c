@@ -28,14 +28,17 @@ ao_validate(void)
 {
 	uint8_t data;
 	int16_t	decivolt;
+	int i;
 
 	ao_config_get();
 
 	/* Check the battery voltage */
-	data = ao_data_head;
-	do {
-		ao_sleep((void *) &ao_data_head);
-	} while (ao_data_head == data);
+	for (i = 0; i < 10; i++) {
+		data = ao_data_head;
+		do {
+			ao_sleep((void *) &ao_data_head);
+		} while (ao_data_head == data);
+	}
 	decivolt = ao_battery_decivolt(ao_data_ring[data].adc.v_batt);
 	if (decivolt < 35 || 55 < decivolt)
 		ao_panic(AO_FAIL_ADC);
