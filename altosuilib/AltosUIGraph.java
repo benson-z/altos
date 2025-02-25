@@ -26,7 +26,7 @@ import java.awt.*;
 import javax.swing.*;
 import org.altusmetrum.altoslib_14.*;
 
-import org.jfree.ui.*;
+import org.jfree.chart.ui.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.chart.axis.*;
@@ -155,7 +155,7 @@ public class AltosUIGraph implements AltosUnitsListener, AltosShapeListener {
 		chart = new JFreeChart(title, JFreeChart.DEFAULT_TITLE_FONT,
 				       plot, true);
 
-		ChartUtilities.applyCurrentTheme(chart);
+		ChartUtils.applyCurrentTheme(chart);
 
 		plot.setDomainGridlinePaint(gridline_color);
 		plot.setRangeGridlinePaint(gridline_color);

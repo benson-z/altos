@@ -25,7 +25,7 @@ import java.awt.*;
 import javax.swing.*;
 import org.altusmetrum.altoslib_14.*;
 
-import org.jfree.ui.*;
+import org.jfree.chart.ui.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.chart.axis.*;
@@ -141,7 +141,7 @@ public class AltosUITimeSeries extends AltosTimeSeries implements AltosUIGrapher
 									   units.graph_units()),
 							     new java.text.DecimalFormat(time_example),
 							     new java.text.DecimalFormat(example));
-			renderer.setBaseToolTipGenerator(ttg);
+			renderer.setSeriesToolTipGenerator(0, ttg);
 		}
 		set_data();
 	}

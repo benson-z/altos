@@ -27,7 +27,7 @@ import java.util.concurrent.*;
 import java.util.*;
 import org.altusmetrum.altoslib_14.*;
 
-import org.jfree.ui.*;
+import org.jfree.chart.ui.*;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.*;
 import org.jfree.chart.axis.*;
