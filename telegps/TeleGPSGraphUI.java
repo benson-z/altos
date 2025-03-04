@@ -32,7 +32,7 @@ import org.altusmetrum.altosuilib_14.*;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.ui.RefineryUtilities;
+import org.jfree.chart.ui.UIUtils;
 
 public class TeleGPSGraphUI extends AltosUIFrame implements AltosFontListener, AltosUnitsListener, AltosFilterListener
 {
