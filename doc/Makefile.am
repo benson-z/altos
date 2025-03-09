@@ -237,6 +237,7 @@ EASYMINI_ADOC_FILES=$(EASYMINI_TXT_FILES:.txt=.adoc) $(EASYMINI_INC_FILES:.inc=.
 OUTLINE_TXT_FILES=\
 	easymega-outline.txt \
 	easymini-outline.txt \
+	micropeak-outline.txt \
 	telemega-outline.txt \
 	telemetrum-outline.txt \
 	telemini-v1-outline.txt \
@@ -253,6 +254,7 @@ SVG=\
 	telemetrum.svg \
 	telemini-v1.svg \
 	telemini-v3.svg \
+	micropeak.svg \
 	easymega.svg
 
 RELNOTES_HTML=$(RELNOTES_INC:.inc=.html)
@@ -346,6 +348,8 @@ easymini.pdf easymini.html: $(EASYMINI_ADOC_FILES) $(IMAGES)
 telemini-v1-outline.pdf: telemini-v1-outline.txt telemini-v1.svg
 
 telemini-v3-outline.pdf: telemini-v3-outline.txt telemini-v3.svg
+
+micropeak-outline.pdf: micropeak-outline.txt micropeak.svg
 
 install:	all
 

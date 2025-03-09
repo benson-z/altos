@@ -1,0 +1,14 @@
+:notitle:
+:doctype: article
+
+== MicroPeak Outline and Hole Pattern
+
+	This image, when printed, provides a precise template for the
+	mounting holes in MicroPeak. MicroPeak has overall dimensions
+	of 0.700 x 0.560 inches (17.78mm x 14.224mm), and the 0.098
+	inch (2.5mm) mounting holes are 0.075 inches (1.905mm) from
+	the board edges.  That means they are in a rectangle measuring
+	0.550 x 0.410 inches (13.97mm x 10.414mm), sized for use with
+	2-56 or M2.5 screws.
+
+	image::micropeak.svg[align="center"]

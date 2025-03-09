@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1.25in"
+   height="1in"
+   viewBox="0 0 120 106"
+   preserveaspectratio="none"
+   id="svg2"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs27" />
+  <g
+     transform="translate(25,25)"
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:miter;font-size:24"
+     id="g22">
+    <!-- outline -->
+    <rect
+       width="70"
+       height="56"
+       x="0"
+       y="0"
+       id="rect2" />
+    <!-- holes -->
+    <path
+       d="M7.5,7.5 m-4.9,0 a4.9,4.9,0,1,0,9.8,0 a4.9,4.9,0,1,0,-9.8,0 l9.8,0 m-4.9,-4.9 l0,9.8"
+       id="path4" />
+    <path
+       d="M62.5,7.5 m-4.9,0 a4.9,4.9,0,1,0,9.8,0 a4.9,4.9,0,1,0,-9.8,0 l9.8,0 m-4.9,-4.9 l0,9.8"
+       id="path6" />
+    <path
+       d="M7.5,48.5 m-4.9,0 a4.9,4.9,0,1,0,9.8,0 a4.9,4.9,0,1,0,-9.8,0 l9.8,0 m-4.9,-4.9 l0,9.8"
+       id="path8" />
+    <path
+       d="M62.5,48.5 m-4.9,0 a4.9,4.9,0,1,0,9.8,0 a4.9,4.9,0,1,0,-9.8,0 l9.8,0 m-4.9,-4.9 l0,9.8"
+       id="path10" />
+    <!-- width -->
+    <path
+	d="M0,-5 l0,-10 M70,-5 l0,-10"
+	id="path11" />
+    <text
+	x="35"
+	y="-7"
+       style="fill:#000000;stroke:none;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+       text-anchor="middle"
+       id="text16"><tspan
+         id="tspan310">0.700</tspan>
+    </text>
+    <!-- height -->
+    <path
+	d="M-5,0 l-10,0 M-5,56 l-10,0"
+	id="path11" />
+    <text
+	x="28"
+	y="14"
+	transform="rotate(90)"
+       style="fill:#000000;stroke:none;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+       text-anchor="middle"
+       id="text16"><tspan
+         id="tspan310">0.560</tspan>
+    </text>
+    <!-- hole H dist -->
+    <path
+	d="M7.5,61 l0,10 M62.5,60 l0,10"
+	id="path11" />
+    <text
+	x="35"
+	y="70"
+       style="fill:#000000;stroke:none;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+       text-anchor="middle"
+       id="text16"><tspan
+         id="tspan310">0.550</tspan>
+    </text>
+    <!-- hole V dist -->
+    <path
+	d="M75,7.5 l10,0 M75,48.5 l10,0"
+	id="path11" />
+    <text
+	x="28"
+	y="-77"
+	transform="rotate(90)"
+       style="fill:#000000;stroke:none;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+       text-anchor="middle"
+       id="text16"><tspan
+         id="tspan310">0.410</tspan>
+    </text>
+    <!-- label -->
+    <text
+       x="35"
+       y="31"
+       style="fill:#000000;stroke:none;font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle"
+       text-anchor="middle"
+       id="text16"><tspan
+         id="tspan310">MicroPeak</tspan></text>
+  </g>
+</svg>
