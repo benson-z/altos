@@ -66,6 +66,8 @@
 #define ao_gps_set_speed	ao_serial2_set_speed
 #define ao_gps_fifo		(ao_stm_usart2.rx_fifo)
 
+#define AO_UBLOX_VERSION	10
+
 #define AO_CONFIG_DEFAULT_FLIGHT_LOG_MAX	(1024 * 1024)
 #define AO_CONFIG_DEFAULT_ACCEL_PLUS_G		-20
 #define AO_CONFIG_DEFAULT_ACCEL_MINUS_G		20
