@@ -69,6 +69,7 @@ fat_altos = \
 	src/telemega-v4.0/telemega-v4.0-$(VERSION).ihx \
 	src/telemega-v5.0/telemega-v5.0-$(VERSION).ihx \
 	src/telemega-v6.0/telemega-v6.0-$(VERSION).ihx \
+	src/telemega-v7.0/telemega-v7.0-$(VERSION).ihx \
 	src/telemetrum-v2.0/telemetrum-v2.0-$(VERSION).ihx \
 	src/telemetrum-v3.0/telemetrum-v3.0-$(VERSION).ihx \
 	src/telemetrum-v4.0/telemetrum-v4.0-$(VERSION).ihx \
