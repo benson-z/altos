@@ -81,7 +81,8 @@ public abstract class AltosTelemetryStandard extends AltosTelemetry {
 		case packet_type_mega_sensor_bmx160:
 			telem = new AltosTelemetryMegaSensor(bytes, AltosIMU.imu_type_telemega_v4);
 			break;
-		case packet_type_mega_data:
+		case packet_type_mega_data_15v:
+		case packet_type_mega_data_30v:
 			telem = new AltosTelemetryMegaData(bytes);
 			break;
 		case packet_type_metrum_sensor:

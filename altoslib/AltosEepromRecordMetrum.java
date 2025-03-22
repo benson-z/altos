@@ -86,9 +86,9 @@ public class AltosEepromRecordMetrum extends AltosEepromRecord {
 			listener.set_acceleration(cal_data.acceleration(accel()));
 			break;
 		case AltosLib.AO_LOG_TEMP_VOLT:
-			listener.set_battery_voltage(AltosConvert.mega_battery_voltage(v_batt()));
-			listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sense_a()));
-			listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sense_m()));
+			listener.set_battery_voltage(AltosConvert.metrum_battery_voltage(v_batt()));
+			listener.set_apogee_voltage(AltosConvert.metrum_pyro_voltage(sense_a()));
+			listener.set_main_voltage(AltosConvert.metrum_pyro_voltage(sense_m()));
 			break;
 		case AltosLib.AO_LOG_GPS_POS:
 			gps = listener.make_temp_gps(false);

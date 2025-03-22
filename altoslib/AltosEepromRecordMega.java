@@ -290,6 +290,15 @@ public class AltosEepromRecordMega extends AltosEepromRecord {
 	private int sense(int i) { return data16(6 + i * 2); }
 	private int pyro() { return data16(26); }
 
+	private double pyro_voltage(int sense) {
+		switch (log_format) {
+		case AltosLib.AO_LOG_FORMAT_TELEMEGA_7:
+			return AltosConvert.mega_pyro_voltage_30v(sense);
+		default:
+			return AltosConvert.mega_pyro_voltage_15v(sense);
+		}
+	}
+
 	/* AO_LOG_GPS_TIME elements */
 	private int latitude() { return data32(0); }
 	private int longitude() { return data32(4); }
@@ -374,16 +383,16 @@ public class AltosEepromRecordMega extends AltosEepromRecord {
 			break;
 		case AltosLib.AO_LOG_TEMP_VOLT:
 			listener.set_battery_voltage(AltosConvert.mega_battery_voltage(v_batt()));
-			listener.set_pyro_voltage(AltosConvert.mega_pyro_voltage(v_pbatt()));
+			listener.set_pyro_voltage(pyro_voltage(v_pbatt()));
 
 			int nsense = nsense();
 
-			listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sense(nsense-2)));
-			listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sense(nsense-1)));
+			listener.set_apogee_voltage(pyro_voltage(sense(nsense-2)));
+			listener.set_main_voltage(pyro_voltage(sense(nsense-1)));
 
 			double voltages[] = new double[nsense-2];
 			for (int i = 0; i < nsense-2; i++)
-				voltages[i] = AltosConvert.mega_pyro_voltage(sense(i));
+				voltages[i] = pyro_voltage(sense(i));
 
 			listener.set_igniter_voltage(voltages);
 			listener.set_pyro_fired(pyro());

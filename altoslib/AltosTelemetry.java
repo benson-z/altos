@@ -75,7 +75,7 @@ public abstract class AltosTelemetry implements AltosDataProvider {
 	final static int packet_type_satellite = 0x06;
 	final static int packet_type_companion = 0x07;
 	final static int packet_type_mega_sensor_mpu = 0x08;
-	final static int packet_type_mega_data = 0x09;
+	final static int packet_type_mega_data_15v = 0x09;
 	final static int packet_type_metrum_sensor = 0x0a;
 	final static int packet_type_metrum_data = 0x0b;
 	final static int packet_type_mini2 = 0x10;
@@ -83,6 +83,7 @@ public abstract class AltosTelemetry implements AltosDataProvider {
 	final static int packet_type_mega_sensor_bmx160 = 0x12;
 	final static int packet_type_mega_norm_mpu6000_mmc5983 = 0x13;
 	final static int packet_type_mega_norm_bmi088_mmc5983 = 0x14;
+	final static int packet_type_mega_data_30v = 0x15;
 
 	static AltosTelemetry parse_hex(String hex)  throws ParseException, AltosCRCException {
 		AltosTelemetry	telem = null;

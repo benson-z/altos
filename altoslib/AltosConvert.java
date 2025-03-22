@@ -224,15 +224,49 @@ public class AltosConvert {
 		return raw / 4095.0;
 	}
 
-	static public double mega_battery_voltage(int v_batt) {
+	static double stm_adc(int raw) {
+		return raw / 4095.0;
+	}
+
+	static public double easy_timer_battery_voltage(int v_batt) {
 		if (v_batt != AltosLib.MISSING)
-			return 3.3 * mega_adc(v_batt) * (5.6 + 10.0) / 10.0;
+			return 3.3 * stm_adc(v_batt) * (5.6 + 10.0) / 10.0;
 		return AltosLib.MISSING;
 	}
 
-	static double mega_pyro_voltage(int raw) {
+	static double easy_timer_pyro_voltage_15v(int raw) {
 		if (raw != AltosLib.MISSING)
-			return 3.3 * mega_adc(raw) * (100.0 + 27.0) / 27.0;
+			return 3.3 * stm_adc(raw) * (100.0 + 27.0) / 27.0;
+		return AltosLib.MISSING;
+	}
+
+	static public double metrum_battery_voltage(int v_batt) {
+		if (v_batt != AltosLib.MISSING)
+			return 3.3 * stm_adc(v_batt) * (5.6 + 10.0) / 10.0;
+		return AltosLib.MISSING;
+	}
+
+	static double metrum_pyro_voltage(int raw) {
+		if (raw != AltosLib.MISSING)
+			return 3.3 * stm_adc(raw) * (100.0 + 27.0) / 27.0;
+		return AltosLib.MISSING;
+	}
+
+	static public double mega_battery_voltage(int v_batt) {
+		if (v_batt != AltosLib.MISSING)
+			return 3.3 * stm_adc(v_batt) * (5.6 + 10.0) / 10.0;
+		return AltosLib.MISSING;
+	}
+
+	static double mega_pyro_voltage_15v(int raw) {
+		if (raw != AltosLib.MISSING)
+			return 3.3 * stm_adc(raw) * (100.0 + 27.0) / 27.0;
+		return AltosLib.MISSING;
+	}
+
+	static double mega_pyro_voltage_30v(int raw) {
+		if (raw != AltosLib.MISSING)
+			return 3.3 * stm_adc(raw) * (100.0 + 12.0) / 12.0;
 		return AltosLib.MISSING;
 	}
 

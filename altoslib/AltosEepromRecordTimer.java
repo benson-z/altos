@@ -135,17 +135,17 @@ public class AltosEepromRecordTimer extends AltosEepromRecord {
 
 			listener.set_acceleration(cal_data.acceleration(accel()));
 
-			listener.set_battery_voltage(AltosConvert.mega_battery_voltage(v_batt()));
-			listener.set_pyro_voltage(AltosConvert.mega_pyro_voltage(v_pbatt()));
+			listener.set_battery_voltage(AltosConvert.easy_timer_battery_voltage(v_batt()));
+			listener.set_pyro_voltage(AltosConvert.easy_timer_pyro_voltage_15v(v_pbatt()));
 
 			int nsense = nsense();
 
-			listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sense(nsense-2)));
-			listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sense(nsense-1)));
+			listener.set_apogee_voltage(AltosConvert.easy_timer_pyro_voltage_15v(sense(nsense-2)));
+			listener.set_main_voltage(AltosConvert.easy_timer_pyro_voltage_15v(sense(nsense-1)));
 
 			double voltages[] = new double[nsense-2];
 			for (int i = 0; i < nsense-2; i++)
-				voltages[i] = AltosConvert.mega_pyro_voltage(sense(i));
+				voltages[i] = AltosConvert.easy_timer_pyro_voltage_15v(sense(i));
 
 			listener.set_igniter_voltage(voltages);
 			listener.set_pyro_fired(pyro());

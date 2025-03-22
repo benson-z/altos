@@ -21,6 +21,7 @@ package org.altusmetrum.altoslib_14;
 import java.util.concurrent.TimeoutException;
 
 class AltosSensorMega {
+	int		log_format;
 	int		tick;
 	int[]		sense;
 	int		v_batt;
@@ -33,6 +34,7 @@ class AltosSensorMega {
 
 	public AltosSensorMega(AltosLink link) throws InterruptedException, TimeoutException {
 		this();
+		log_format = link.config_data().log_format;
 		String[] items = link.adc();
 		for (int i = 0; i < items.length;) {
 			if (items[i].equals("tick:")) {
@@ -89,17 +91,30 @@ class AltosSensorMega {
 		}
 	}
 
+	double pyro_voltage(int sense) {
+		switch (log_format) {
+		case AltosLib.AO_LOG_FORMAT_TELEMEGA_7:
+			return AltosConvert.mega_pyro_voltage_30v(sense);
+		default:
+			return AltosConvert.mega_pyro_voltage_15v(sense);
+		}
+	}
+
+	double battery_voltage(int sense) {
+		return AltosConvert.mega_battery_voltage(sense);
+	}
+
 	static public void provide_data(AltosDataListener listener, AltosLink link) throws InterruptedException {
 		try {
 			AltosSensorMega	sensor_mega = new AltosSensorMega(link);
 
-			listener.set_battery_voltage(AltosConvert.mega_battery_voltage(sensor_mega.v_batt));
-			listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sensor_mega.sense[4]));
-			listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sensor_mega.sense[5]));
+			listener.set_battery_voltage(sensor_mega.battery_voltage(sensor_mega.v_batt));
+			listener.set_apogee_voltage(sensor_mega.pyro_voltage(sensor_mega.sense[4]));
+			listener.set_main_voltage(sensor_mega.pyro_voltage(sensor_mega.sense[5]));
 
 			double[]	igniter_voltage = new double[4];
 			for (int i = 0; i < 4; i++)
-				igniter_voltage[i] = AltosConvert.mega_pyro_voltage(sensor_mega.sense[i]);
+				igniter_voltage[i] = sensor_mega.pyro_voltage(sensor_mega.sense[i]);
 			listener.set_igniter_voltage(igniter_voltage);
 
 		} catch (TimeoutException te) {

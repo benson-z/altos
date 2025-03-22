@@ -420,6 +420,7 @@ public class AltosLib {
 	public static final int AO_LOG_FORMAT_TELEMEGA_6 = 22;
 	public static final int AO_LOG_FORMAT_EASYTIMER_2 = 23;
 	public static final int AO_LOG_FORMAT_EASYMEGA_3 = 24;
+	public static final int AO_LOG_FORMAT_TELEMEGA_7 = 25;
 	public static final int AO_LOG_FORMAT_NONE = 127;
 
 	public static final int	model_mpu6000 = 0;

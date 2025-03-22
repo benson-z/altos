@@ -41,20 +41,29 @@ public class AltosTelemetryMegaData extends AltosTelemetryStandard {
 		super(bytes);
 	}
 
+	double pyro_voltage(int sense) {
+		switch (type()) {
+		case AltosTelemetry.packet_type_mega_data_30v:
+			return AltosConvert.mega_pyro_voltage_30v(sense);
+		default:
+			return AltosConvert.mega_pyro_voltage_15v(sense);
+		}
+	}
+
 	public void provide_data(AltosDataListener listener) {
 		super.provide_data(listener);
 
 		listener.set_state(state());
 
 		listener.set_battery_voltage(AltosConvert.mega_battery_voltage(v_batt()));
-		listener.set_pyro_voltage(AltosConvert.mega_pyro_voltage(v_pyro()));
+		listener.set_pyro_voltage(pyro_voltage(v_pyro()));
 
-		listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sense(4)));
-		listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sense(5)));
+		listener.set_apogee_voltage(pyro_voltage(sense(4)));
+		listener.set_main_voltage(pyro_voltage(sense(5)));
 
 		double voltages[] = new double[4];
 		for (int i = 0; i < 4; i++)
-			voltages[i] = AltosConvert.mega_pyro_voltage(sense(i));
+			voltages[i] = pyro_voltage(sense(i));
 
 		listener.set_igniter_voltage(voltages);
 

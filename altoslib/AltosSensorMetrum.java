@@ -56,9 +56,9 @@ class AltosSensorMetrum {
 	static public void provide_data(AltosDataListener listener, AltosLink link) throws InterruptedException {
 		try {
 			AltosSensorMetrum	sensor_metrum = new AltosSensorMetrum(link);
-			listener.set_battery_voltage(AltosConvert.mega_battery_voltage(sensor_metrum.v_batt));
-			listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sensor_metrum.sense_a));
-			listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sensor_metrum.sense_m));
+			listener.set_battery_voltage(AltosConvert.metrum_battery_voltage(sensor_metrum.v_batt));
+			listener.set_apogee_voltage(AltosConvert.metrum_pyro_voltage(sensor_metrum.sense_a));
+			listener.set_main_voltage(AltosConvert.metrum_pyro_voltage(sensor_metrum.sense_m));
 		} catch (TimeoutException te) {
 		}
 	}

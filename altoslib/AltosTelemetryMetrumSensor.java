@@ -49,9 +49,9 @@ public class AltosTelemetryMetrumSensor extends AltosTelemetryStandard {
 
 		listener.set_kalman(height_16(), speed()/16.0, acceleration()/16.0);
 
-		listener.set_battery_voltage(AltosConvert.mega_battery_voltage(v_batt()));
+		listener.set_battery_voltage(AltosConvert.metrum_battery_voltage(v_batt()));
 
-		listener.set_apogee_voltage(AltosConvert.mega_pyro_voltage(sense_a()));
-		listener.set_main_voltage(AltosConvert.mega_pyro_voltage(sense_m()));
+		listener.set_apogee_voltage(AltosConvert.metrum_pyro_voltage(sense_a()));
+		listener.set_main_voltage(AltosConvert.metrum_pyro_voltage(sense_m()));
 	}
 }
