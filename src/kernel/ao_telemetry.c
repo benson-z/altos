@@ -142,7 +142,7 @@ ao_send_mega_sensor(void)
 #if AO_LOG_NORMALIZED
 #if AO_LOG_FORMAT == AO_LOG_FORMAT_TELEMEGA_5
 	telemetry.generic.type = AO_TELEMETRY_MEGA_NORM_MPU6000_MMC5983;
-#elif AO_LOG_FORMAT == AO_LOG_FORMAT_TELEMEGA_6
+#elif AO_LOG_FORMAT == AO_LOG_FORMAT_TELEMEGA_6 || AO_LOG_FORMAT == AO_LOG_FORMAT_TELEMEGA_7
 	telemetry.generic.type = AO_TELEMETRY_MEGA_NORM_BMI088_MMC5983;
 #else
 #error unknown normalized log type

@@ -204,7 +204,8 @@ struct ao_telemetry_mega_sensor {
 	/* 32 */
 };
 
-#define AO_TELEMETRY_MEGA_DATA		0x09
+#define AO_TELEMETRY_MEGA_DATA_15V		0x09	/* 100k / 27k */
+#define AO_TELEMETRY_MEGA_DATA_30V		0x15	/* 100k / 12k */
 
 struct ao_telemetry_mega_data {
 	uint16_t	serial;		/*  0 */
