@@ -7,7 +7,7 @@ endif::[]
 [license]
 == License
 
-Copyright © 2024 Bdale Garbee and Keith Packard
+Copyright © 2025 Bdale Garbee and Keith Packard
 
 This document is released under the terms of the link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons ShareAlike 3.0 License]
 
