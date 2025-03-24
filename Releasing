@@ -92,6 +92,9 @@ These are Bdale's notes on how to do a release.
 
         git commit -n debian/changelog -m "update changelog for Debian build"
 
+	- review debian/patches, all should be obsoleted by a new release, so
+	  take care of any that are there and commit the changes
+
 	- if this is a -1 release, then
 		gbp buildpackage --git-no-pristine-tar \
 			--git-upstream-branch=branch-<version> \ # eg 1.3
