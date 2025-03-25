@@ -1,4 +1,4 @@
-= Release Notes for Version 1.9.19
+= Release Notes for Version 1.9.20
 include::release-head.adoc[]
 :doctype: article
 
