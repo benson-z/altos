@@ -49,21 +49,21 @@ public class AltosConvert {
 
 	private static final double GRAVITATIONAL_ACCELERATION = -gravity;
 	private static final double AIR_GAS_CONSTANT		= 287.053;
-	private static final double NUMBER_OF_LAYERS		= 7;
-	private static final double MAXIMUM_ALTITUDE		= 84852.0;
-	private static final double MINIMUM_PRESSURE		= 0.3734;
+	private static final double MAXIMUM_ALTITUDE		= 100000.0;
+	private static final double MINIMUM_PRESSURE		= 0.023439;
 	private static final double LAYER0_BASE_TEMPERATURE	= 288.15;
 	private static final double LAYER0_BASE_PRESSURE	= 101325;
 
 	/* lapse rate and base altitude for each layer in the atmosphere */
 	private static final double[] lapse_rate = {
-		-0.0065, 0.0, 0.001, 0.0028, 0.0, -0.0028, -0.002
+		-0.0065, 0.0, 0.001, 0.0028, 0.0, -0.0028, -0.002, 0,
 	};
 
-	private static final int[] base_altitude = {
-		0, 11000, 20000, 32000, 47000, 51000, 71000
+	private static final double[] base_altitude = {
+		0, 11000, 20000, 32000, 47000, 51000, 71000, 84852,
 	};
 
+	private static final int NUMBER_OF_LAYERS		= base_altitude.length;
 	/* outputs atmospheric pressure associated with the given altitude.
 	 * altitudes are measured with respect to the mean sea level
 	 */
@@ -128,25 +128,21 @@ public class AltosConvert {
 		double next_base_pressure = LAYER0_BASE_PRESSURE;
 
 		double altitude;
-		double base_pressure;
-		double base_temperature;
+		double base_pressure = 0;
+		double base_temperature = 0;
 		double base; /* base for function to determine base pressure of next layer */
 		double exponent; /* exponent for function to determine base pressure
 				    of next layer */
 		double coefficient;
 		int layer_number; /* identifies layer in the atmosphere */
-		int delta_z; /* difference between two altitudes */
+		double delta_z; /* difference between two altitudes */
 
-		if (pressure < 0)  /* illegal pressure */
-			return -1;
 		if (pressure < MINIMUM_PRESSURE) /* FIX ME: use sensor data to improve model */
-			return MAXIMUM_ALTITUDE;
+			pressure = MINIMUM_PRESSURE;
 
 		/* calculate the base temperature and pressure for the atmospheric layer
 		   associated with the inputted pressure. */
-		layer_number = -1;
-		do {
-			layer_number++;
+		for (layer_number = 0; layer_number < NUMBER_OF_LAYERS - 1; layer_number++) {
 			base_pressure = next_base_pressure;
 			base_temperature = next_base_temperature;
 			delta_z = base_altitude[layer_number + 1] - base_altitude[layer_number];
@@ -162,8 +158,9 @@ public class AltosConvert {
 				next_base_pressure *= Math.pow(base, exponent);
 			}
 			next_base_temperature += delta_z * lapse_rate[layer_number];
+			if (pressure >= next_base_pressure)
+				break;
 		}
-		while(layer_number < NUMBER_OF_LAYERS - 1 && pressure < next_base_pressure);
 
 		/* calculate the altitude associated with the inputted pressure */
 		if (lapse_rate[layer_number] == 0.0) {
@@ -180,6 +177,9 @@ public class AltosConvert {
 			altitude = base_altitude[layer_number]
 				+ coefficient * (Math.pow(base, exponent) - 1);
 		}
+
+		if (altitude > MAXIMUM_ALTITUDE)
+			altitude = MAXIMUM_ALTITUDE;
 
 		return altitude;
 	}
