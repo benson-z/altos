@@ -188,8 +188,6 @@ ao_flushc(FILE *ignore)
 
 static FILE __stdio = FDEV_SETUP_STREAM(ao_putc, ao_getc, ao_flushc, _FDEV_SETUP_RW);
 
-#ifdef PICOLIBC_STDIO_GLOBALS
-
 #ifdef __strong_reference
 #define STDIO_ALIAS(x) __strong_reference(stdin, x);
 #else
@@ -199,9 +197,3 @@ static FILE __stdio = FDEV_SETUP_STREAM(ao_putc, ao_getc, ao_flushc, _FDEV_SETUP
 FILE *const stdin = &__stdio;
 STDIO_ALIAS(stdout);
 STDIO_ALIAS(stderr);
-
-#else
-
-FILE *const __iob[3] = { &__stdio, &__stdio, &__stdio };
-
-#endif
