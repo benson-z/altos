@@ -17,6 +17,7 @@ FAKETIME=TZ=UTC faketime -f '$(RELEASE_DATE) 00:00:00 i0'
 endif
 
 RELNOTES_INC=\
+	release-notes-1.9.21.inc \
 	release-notes-1.9.20.inc \
 	release-notes-1.9.19.inc \
 	release-notes-1.9.18.inc \
