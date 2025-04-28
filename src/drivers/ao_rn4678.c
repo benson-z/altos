@@ -308,19 +308,10 @@ ao_rn_wait_status(void)
 }
 
 static int
-ao_rn_set_name(void)
+ao_rn_set_name(char *name)
 {
-	char	sn[8];
-	char	*s = sn + 8;
-	int	n;
-
 //	ao_rn_dbg("set name...\n");
-	*--s = '\0';
-	n = ao_serial_number;
-	do {
-		*--s = (uint8_t) ('0' + n % 10);
-	} while (n /= 10);
-	ao_rn_send_cmd(AO_RN_SET_NAME_CMD "TeleBT-", s);
+	ao_rn_send_cmd(AO_RN_SET_NAME_CMD, name);
 	return ao_rn_wait_status();
 }
 
@@ -379,7 +370,7 @@ static void
 ao_rn(void)
 {
 	int	status = AO_RN_ERROR;
-	char	name[17];
+	char	have_name[17], want_name[17];
 	int	i;
 
 	ao_rn_dbg("ao_rn top\n");
@@ -418,15 +409,16 @@ ao_rn(void)
 		/* Check to see if the name is already set and assume
 		 * that the device is ready to go
 		 */
-		status = ao_rn_get_name(name, sizeof (name));
+		status = ao_rn_get_name(have_name, sizeof (have_name));
 		if (status != AO_RN_OK) {
 			ao_rn_dbg("get name failed\n");
-			status = ao_rn_get_name(name, sizeof (name));
+			status = ao_rn_get_name(have_name, sizeof (have_name));
 			if (status != AO_RN_OK)
 				continue;
 		}
+		snprintf(want_name, sizeof(want_name), "TeleBT-%u", ao_serial_number);
 
-		if (strncmp(name, "TeleBT-", 7) == 0) {
+		if (strcmp(have_name, want_name) == 0) {
 			ao_rn_dbg("name is set\n");
 			status = AO_RN_OK;
 			break;
@@ -455,7 +447,7 @@ ao_rn(void)
 		/* Finally, set the name. Doing this last makes it possible to check
 		 * if the whole sequence has been done
 		 */
-		if (ao_rn_set_name() != AO_RN_OK) {
+		if (ao_rn_set_name(want_name) != AO_RN_OK) {
 			ao_rn_dbg("set name failed\n");
 			continue;
 		}
