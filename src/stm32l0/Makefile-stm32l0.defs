@@ -4,7 +4,7 @@ endif
 
 # Disable floating-point support in printf to save space
 
-PICOLIBC_PRINTF_CFLAGS = -DPICOLIBC_INTEGER_PRINTF_SCANF
+PICOLIBC_PRINTF_CFLAGS = --printf=i
 
 include $(TOPDIR)/Makefile.defs
 
