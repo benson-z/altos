@@ -89,6 +89,7 @@ public class AltosEepromRecordSet implements AltosRecordSet {
 		case AltosLib.AO_LOG_FORMAT_TELEMEGA_5:
 		case AltosLib.AO_LOG_FORMAT_TELEMEGA_6:
 		case AltosLib.AO_LOG_FORMAT_EASYMEGA_3:
+		case AltosLib.AO_LOG_FORMAT_TELEMEGA_7:
 			record = new AltosEepromRecordMega(eeprom);
 			break;
 		case AltosLib.AO_LOG_FORMAT_TELEMETRUM:

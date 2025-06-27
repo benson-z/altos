@@ -703,6 +703,8 @@ public class AltosLib {
 			return product_telemega;
 		case AO_LOG_FORMAT_TELEMEGA_6:
 			return product_telemega;
+		case AO_LOG_FORMAT_TELEMEGA_7:
+			return product_telemega;
 		case AO_LOG_FORMAT_NONE:
 			return product_altusmetrum;
 		default:

@@ -222,6 +222,7 @@ public class AltosConfigData {
 		case AltosLib.AO_LOG_FORMAT_TELEMEGA_4:
 		case AltosLib.AO_LOG_FORMAT_TELEMEGA_5:
 		case AltosLib.AO_LOG_FORMAT_TELEMEGA_6:
+		case AltosLib.AO_LOG_FORMAT_TELEMEGA_7:
 		case AltosLib.AO_LOG_FORMAT_EASYMEGA_2:
 		case AltosLib.AO_LOG_FORMAT_EASYMEGA_3:
 		case AltosLib.AO_LOG_FORMAT_EASYMOTOR:
@@ -692,6 +693,8 @@ public class AltosConfigData {
 				return true;
 			if (product.startsWith("TeleMega-v6"))
 				return true;
+			if (product.startsWith("TeleMega-v7"))
+				return true;
 			if (product.startsWith("EasyMotor-v2"))
 				return true;
 			if (product.startsWith("EasyMotor-v3"))
@@ -713,6 +716,8 @@ public class AltosConfigData {
 			if (product.startsWith("TeleMega-v5"))
 				return AltosAdxl375.X_AXIS;
 			if (product.startsWith("TeleMega-v6"))
+				return AltosAdxl375.X_AXIS;
+			if (product.startsWith("TeleMega-v7"))
 				return AltosAdxl375.X_AXIS;
 			if (product.startsWith("EasyMotor-v2"))
 				return AltosAdxl375.X_AXIS;
