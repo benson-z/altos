@@ -56,7 +56,7 @@ extern struct ao_pad_query	ao_pad_query;	/* Last received QUERY from pad */
 #   define AO_LCO_BOX_FIRST	AO_LCO_CONTRAST
 #  endif
 # endif
-# ifdef AO_LCO_HAS_BACKLIGHT_UI
+# ifdef AO_LCO_HAS_BACKLIGHT
 #  define AO_LCO_BACKLIGHT 	-1
 #  ifndef AO_LCO_BOX_FIRST
 #   define AO_LCO_BOX_FIRST 	AO_LCO_BACKLIGHT
