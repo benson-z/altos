@@ -176,7 +176,7 @@ ao_mosaic_putchar(char c)
 #define AO_SERIAL_SPEED_115200	3
 
 static void
-ao_gps_set_speed(uint8_t speed)
+ao_mosaic_set_speed(uint8_t speed)
 {
 	int	fd = ao_gps_fd;
 	struct termios	termios;
@@ -276,6 +276,6 @@ main (int argc, char **argv)
 		exit (1);
 	}
 	ao_gps_file = fdopen(ao_gps_fd, "r");
-	mosaic();
+	ao_gps_mosaic();
 	return 0;
 }
