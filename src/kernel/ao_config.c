@@ -258,6 +258,10 @@ _ao_config_get(void)
 #endif
 		if (minor < 26)
 			ao_config.report_feet = AO_CONFIG_DEFAULT_REPORT_FEET;
+#if HAS_GPS_MOSAIC
+		if (minor < 27)
+			ao_config.gps_mosaic = 0;
+#endif
 		ao_config.minor = AO_CONFIG_MINOR;
 		ao_config_dirty = 1;
 	}
@@ -906,6 +910,25 @@ ao_config_report_feet_set(void)
 }
 #endif
 
+#if HAS_GPS_MOSAIC
+static void
+ao_config_gps_mosaic_show(void)
+{
+	printf ("GPS receiver: %d\n", ao_config.gps_mosaic);
+}
+
+static void
+ao_config_gps_mosaic_set(void)
+{
+	uint32_t r = ao_cmd_decimal();
+	if (ao_cmd_status != ao_cmd_success)
+		return;
+	_ao_config_edit_start();
+	ao_config.gps_mosaic = !!r;
+	_ao_config_edit_finish();
+}
+#endif
+
 #if HAS_BEEP
 static void
 ao_config_beep_show(void)
@@ -1160,6 +1183,10 @@ const struct ao_config_var ao_config_vars[] = {
 #if HAS_BARO
 	{ "u <0 meters, 1 feet>\0Units to report height after landing",
 	  ao_config_report_feet_set,	ao_config_report_feet_show },
+#endif
+#if HAS_GPS_MOSAIC
+	{ "g <0 ublox, 1 mosaic>\0Select GPS receiver",
+	  ao_config_gps_mosaic_set,     ao_config_gps_mosaic_show },
 #endif
 	{ "s\0Show",
 	  ao_config_show,		0 },

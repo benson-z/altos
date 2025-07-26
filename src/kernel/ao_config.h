@@ -64,7 +64,7 @@
 #endif
 
 #define AO_CONFIG_MAJOR	1
-#define AO_CONFIG_MINOR	26
+#define AO_CONFIG_MINOR	27
 
 /* All cc1200 devices support limiting TX power to 10mW */
 #if !defined(HAS_RADIO_10MW) && defined(AO_CC1200_SPI)
@@ -141,6 +141,9 @@ struct ao_config {
 	uint8_t		radio_10mw;		/* minor version 25 */
 #endif
 	uint8_t		report_feet;		/* minor version 26 */
+#if HAS_GPS_MOSAIC
+	uint8_t		gps_mosaic;		/* minor version 27 */
+#endif
 };
 
 struct ao_config_1_24 {

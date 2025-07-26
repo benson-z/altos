@@ -96,26 +96,6 @@ ao_companion_notify(void)
 }
 
 static void
-ao_companion(void)
-{
-	uint8_t	i;
-	while (!ao_flight_number)
-		ao_sleep(&ao_flight_number);
-	for (i = 0; i < 10; i++) {
-		ao_delay(AO_SEC_TO_TICKS(1));
-		if ((ao_companion_running = ao_companion_get_setup()))
-		    break;
-	}
-	while (ao_companion_running) {
-		if (ao_sleep_for(&ao_flight_state, ao_companion_setup.update_period))
-			ao_companion_get_data();
-		else
-			ao_companion_notify();
-	}
-	ao_exit();
-}
-
-static void
 ao_companion_status(void) 
 {
 	uint8_t	i;
@@ -139,12 +119,37 @@ const struct ao_cmds ao_companion_cmds[] = {
 	{ 0, NULL },
 };
 
+static void
+ao_companion(void)
+{
+	uint8_t	i;
+#if HAS_GPS_MOSAIC
+	ao_config_get();
+	if (ao_config.gps_mosaic)
+		ao_exit();
+#endif
+	ao_enable_output(AO_COMPANION_CS_PORT, AO_COMPANION_CS_PIN, 1);
+	ao_cmd_register(&ao_companion_cmds[0]);
+	while (!ao_flight_number)
+		ao_sleep(&ao_flight_number);
+	for (i = 0; i < 10; i++) {
+		ao_delay(AO_SEC_TO_TICKS(1));
+		if ((ao_companion_running = ao_companion_get_setup()))
+		    break;
+	}
+	while (ao_companion_running) {
+		if (ao_sleep_for(&ao_flight_state, ao_companion_setup.update_period))
+			ao_companion_get_data();
+		else
+			ao_companion_notify();
+	}
+	ao_exit();
+}
+
 static struct ao_task ao_companion_task;
 
 void
 ao_companion_init(void)
 {
-	ao_enable_output(AO_COMPANION_CS_PORT, AO_COMPANION_CS_PIN, 1);
-	ao_cmd_register(&ao_companion_cmds[0]);
 	ao_add_task(&ao_companion_task, ao_companion, "companion");
 }

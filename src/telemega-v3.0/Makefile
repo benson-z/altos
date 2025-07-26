@@ -59,6 +59,8 @@ ALTOS_SRC = \
 	ao_timer.c \
 	ao_mutex.c \
 	ao_serial_stm.c \
+	ao_gps_mosaic.c \
+	ao_crc_ccitt.c \
 	ao_gps_ublox.c \
 	ao_gps_show.c \
 	ao_gps_report_mega.c \

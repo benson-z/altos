@@ -23,7 +23,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
+#define AO_TICK_TYPE uint32_t
 #define AO_ADC_RING	64
 #define ao_adc_ring_next(n)	(((n) + 1) & (AO_ADC_RING - 1))
 #define ao_adc_ring_prev(n)	(((n) - 1) & (AO_ADC_RING - 1))
@@ -56,6 +58,7 @@ enum ao_flight_state {
 
 struct ao_adc ao_adc_ring[AO_ADC_RING];
 uint8_t ao_adc_head;
+AO_TICK_TYPE ao_tick_count;
 
 #define ao_led_on(l)
 #define ao_led_off(l)
@@ -93,9 +96,9 @@ enum ao_igniter_status {
 #define ao_log_start()
 #define ao_log_stop()
 
-#define AO_MS_TO_TICKS(ms)	((ms) / 10)
-#define AO_NS_TO_TICKS(ns)	((ns) / (10000000L))
-#define AO_SEC_TO_TICKS(s)	((s) * 100)
+#define AO_MS_TO_TICKS(ms)	((ms) / (1000 / AO_HERTZ))
+#define AO_SEC_TO_TICKS(s)	((AO_TICK_TYPE) (s) * AO_HERTZ)
+#define AO_NS_TO_TICKS(ns)	((ns) / (1000000000L / AO_HERTZ))
 
 #define AO_FLIGHT_TEST
 
@@ -123,6 +126,9 @@ struct ao_cmds {
 struct ao_config {
 	uint16_t	main_deploy;
 	int16_t		accel_zero_g;
+#ifdef HAS_MOSAIC
+	uint8_t		gps_mosaic;
+#endif
 };
 
 #define ao_config_get()
@@ -132,3 +138,5 @@ struct ao_config ao_config = { 250, 16000 };
 #define memcpy(d,s,c) memcpy(d,s,c)
 #define memset(d,v,c) memset(d,v,c)
 #define memcmp(d,s,c) memcmp(d,s,c)
+
+#define flush() fflush(stdout)

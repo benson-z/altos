@@ -20,6 +20,10 @@
 #include "ao.h"
 #endif
 
+#ifdef HAS_GPS_MOSAIC
+#include "ao_gps_mosaic.h"
+#endif
+
 #include "ao_gps_ublox.h"
 
 #define AO_UBLOX_DEBUG 0
@@ -819,6 +823,27 @@ ao_gps_set_rate(uint8_t rate)
 		ao_ublox_set_message_rate(UBLOX_NAV, ublox_enable_nav[i], rate);
 }
 
+#if AO_UBLOX_DEBUG
+static void ao_gps_option(void)
+{
+	uint8_t r = (uint8_t) ao_cmd_hex();
+	if (ao_cmd_status != ao_cmd_success) {
+		ao_cmd_status = ao_cmd_success;
+		ao_gps_show();
+	} else {
+		ao_gps_dbg_enable = r;
+		printf ("gps debug set to %d\n", ao_gps_dbg_enable);
+	}
+}
+#else
+#define ao_gps_option ao_gps_show
+#endif
+
+const struct ao_cmds ao_gps_cmds[] = {
+	{ ao_gps_option, 	"g\0Display GPS" },
+	{ 0, NULL },
+};
+
 void
 ao_gps(void)
 {
@@ -827,6 +852,17 @@ ao_gps(void)
 	uint8_t			i;
 	AO_TICK_TYPE		packet_start_tick;
 	AO_TICK_TYPE		solution_tick = 0;
+
+#ifdef HAS_GPS_MOSAIC
+	ao_config_get();
+	if (ao_config.gps_mosaic) {
+		ao_gps_mosaic();
+		return;
+	}
+#endif
+#ifndef AO_GPS_TEST
+	ao_cmd_register(&ao_gps_cmds[0]);
+#endif
 
 	ao_gps_setup();
 
@@ -1067,32 +1103,10 @@ ao_gps(void)
 	}
 }
 
-#if AO_UBLOX_DEBUG
-static void ao_gps_option(void)
-{
-	uint8_t r = (uint8_t) ao_cmd_hex();
-	if (ao_cmd_status != ao_cmd_success) {
-		ao_cmd_status = ao_cmd_success;
-		ao_gps_show();
-	} else {
-		ao_gps_dbg_enable = r;
-		printf ("gps debug set to %d\n", ao_gps_dbg_enable);
-	}
-}
-#else
-#define ao_gps_option ao_gps_show
-#endif
-
-const struct ao_cmds ao_gps_cmds[] = {
-	{ ao_gps_option, 	"g\0Display GPS" },
-	{ 0, NULL },
-};
-
 struct ao_task ao_gps_task;
 
 void
 ao_gps_init(void)
 {
-	ao_cmd_register(&ao_gps_cmds[0]);
 	ao_add_task(&ao_gps_task, ao_gps, "gps");
 }

@@ -43,10 +43,28 @@
 #define AO_APB2_PRESCALER	2
 #define AO_RCC_CFGR_PPRE2_DIV	STM_RCC_CFGR_PPRE2_DIV_2
 
+#define HAS_GPS_MOSAIC		1
+
+#if HAS_GPS_MOSAIC
+
+/* Companion cs_companion0(pin 6) = TX cs_companion1 (pin 5) = RX */
+
+#define HAS_SERIAL_1		1
+#define USE_SERIAL_1_STDIN	0
+#define SERIAL_1_PB6_PB7	1
+#define SERIAL_1_PA9_PA10	0
+
+#define ao_mosaic_getchar	ao_serial1_getchar
+#define ao_mosaic_putchar	ao_serial1_putchar
+#define ao_mosaic_set_speed	ao_serial1_set_speed
+#define ao_mosaic_fifo		(ao_stm_usart1.rx_fifo)
+
+#else
 #define HAS_SERIAL_1		0
 #define USE_SERIAL_1_STDIN	0
 #define SERIAL_1_PB6_PB7	0
-#define SERIAL_1_PA9_PA10	1
+#define SERIAL_1_PA9_PA10	0
+#endif
 
 #define HAS_SERIAL_2		0
 #define USE_SERIAL_2_STDIN	0

@@ -19,7 +19,8 @@ KALMAN=make-kalman
 
 CFLAGS=-I.. -I. -I../kernel -I../drivers -I../product -I../lisp -O0 -g -Wall -DAO_LISP_TEST -no-pie
 
-all: $(PROGS) ao_aprs_data.wav
+#all: $(PROGS) ao_aprs_data.wav
+all: ao_gps_test_mosaic
 
 clean::
 	rm -f $(PROGS) ao_aprs_data.wav run-out.baro run-out.full
@@ -61,6 +62,9 @@ ao_gps_test_skytraq: ao_gps_test_skytraq.c ao_gps_skytraq.c ao_gps_print.c ao_gp
 
 ao_gps_test_ublox: ao_gps_test_ublox.c ao_gps_ublox.c ao_gps_print.c ao_gps_show.c ao_host.h ao_gps_ublox.h
 	cc $(CFLAGS) -o $@ $<
+
+ao_gps_test_mosaic: ao_gps_test_mosaic.c ao_gps_mosaic.c ao_gps_print.c ao_gps_show.c ao_host.h ao_gps_mosaic.h
+	cc $(CFLAGS) -o $@ $< -lm
 
 ao_convert_test: ao_convert_test.c ao_convert.c altitude.h
 	cc $(CFLAGS) -o $@ $<

@@ -63,6 +63,8 @@ ALTOS_SRC = \
 	ao_gps_ublox.c \
 	ao_gps_show.c \
 	ao_gps_report_mega.c \
+	ao_gps_mosaic.c \
+	ao_crc_ccitt.c \
 	ao_ignite.c \
 	ao_freq.c \
 	ao_dma_stm.c \
