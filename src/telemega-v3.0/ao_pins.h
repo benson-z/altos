@@ -57,6 +57,8 @@
 #define ao_mosaic_getchar	ao_serial1_getchar
 #define ao_mosaic_putchar	ao_serial1_putchar
 #define ao_mosaic_set_speed	ao_serial1_set_speed
+#define _ao_mosaic_sleep_for	_ao_serial1_sleep_for
+#define _ao_mosaic_pollchar	_ao_serial1_pollchar
 #define ao_mosaic_fifo		(ao_stm_usart1.rx_fifo)
 
 #else

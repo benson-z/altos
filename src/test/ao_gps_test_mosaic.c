@@ -175,6 +175,13 @@ ao_mosaic_putchar(char c)
 #define AO_SERIAL_SPEED_57600	2
 #define AO_SERIAL_SPEED_115200	3
 
+#define AO_READ_AGAIN	-1
+#define AO_HERTZ	100
+#define ao_arch_block_interrupts()
+#define ao_arch_release_interrupts()
+#define _ao_mosaic_pollchar() ao_mosaic_getchar()
+#define _ao_mosaic_sleep_for(t)	1
+
 static void
 ao_mosaic_set_speed(uint8_t speed)
 {

@@ -64,6 +64,32 @@ static inline uint8_t mosaic_byte(void) {
 	return c;
 }
 
+static int
+mosaic_byte_timeout(AO_TICK_TYPE timeout)
+{
+	int	c;
+
+	ao_arch_block_interrupts();
+	while ((c = _ao_mosaic_pollchar()) == AO_READ_AGAIN) {
+		if (_ao_mosaic_sleep_for(timeout)) {
+			c = AO_READ_AGAIN;
+			break;
+		}
+	}
+	ao_arch_release_interrupts();
+#if AO_MOSAIC_DEBUG
+	if (c == AO_READ_AGAIN)
+		mosaic_dbg(DBG_CHAR, "(timeout)");
+	else {
+		if (' ' <= c && c <= '~')
+			mosaic_dbg(DBG_CHAR, "%c", c);
+		else
+			mosaic_dbg(DBG_CHAR, " %02x", c);
+	}
+#endif
+	return c;
+}
+
 static inline void mosaic_putc(char c) {
 #if AO_MOSAIC_DEBUG
 	if (' ' <= c && c <= '~')
@@ -87,28 +113,38 @@ extern AO_TICK_TYPE ao_gps_utc_tick;
 extern struct ao_telemetry_location	ao_gps_data;
 extern struct ao_telemetry_satellite	ao_gps_tracking_data;
 
-static void
+static bool
 mosaic_wait_idle(void)
 {
-	uint8_t	b;
+	int	c;
+	AO_TICK_TYPE	giveup = ao_time() + AO_SEC_TO_TICKS(2);
+
 	for (;;) {
-		while(mosaic_byte() != '$')
-			;
-		if (mosaic_byte() != 'R')
+		while((c = mosaic_byte_timeout(AO_SEC_TO_TICKS(1))) != '$') {
+			if ((AO_TICK_SIGNED) (ao_time() - giveup) >= 0)
+				return false;
+			if (c == AO_READ_AGAIN)
+				return false;
+		}
+		if (mosaic_byte_timeout(AO_MS_TO_TICKS(100)) != 'R')
 			continue;
 		for (;;) {
-			b = mosaic_byte();
-			if (b == '\n')
-				return;
+			c = mosaic_byte_timeout(AO_MS_TO_TICKS(100));
+			if (c == '\n')
+				return true;
+			if (c == AO_READ_AGAIN)
+				break;
+			if ((AO_TICK_SIGNED) (ao_time() - giveup) >= 0)
+				return false;
 		}
 	}
 }
 
-static void
+static bool
 mosaic_command(const char *cmd)
 {
 	mosaic_puts(cmd);
-	mosaic_wait_idle();
+	return mosaic_wait_idle();
 }
 
 static void
@@ -116,7 +152,8 @@ mosaic_setup(void)
 {
 	ao_mosaic_set_speed(AO_SERIAL_SPEED_115200);
 	/* Send messages always */
-	mosaic_command("smrf, OnlyRef \r");
+	while (!mosaic_command("smrf, OnlyRef \r"))
+		mosaic_dbg(DBG_INIT, "Mosaic timeout\n");
 	/* Set receiver dynamics mode */
 	mosaic_command("srd, High, Unlimited \r");
 	/* Report position once per second */

@@ -26,6 +26,7 @@
 #include <stdbool.h>
 
 #define AO_TICK_TYPE uint32_t
+#define AO_TICK_SIGNED int32_t
 #define AO_ADC_RING	64
 #define ao_adc_ring_next(n)	(((n) + 1) & (AO_ADC_RING - 1))
 #define ao_adc_ring_prev(n)	(((n) - 1) & (AO_ADC_RING - 1))
