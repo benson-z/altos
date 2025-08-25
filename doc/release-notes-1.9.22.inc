@@ -4,6 +4,12 @@ include::release-head.adoc[]
 
 	Version 1.9.22
 
+	== AltOS
+
+	* Add support for Mosaic GPS receiver for TeleMega
+
 	== AltosUI & TeleGPS application
 
 	* Support TeleMega v7 .eeprom files
+
+	* Add Mosaic GPS selection option in Altimeter configuration
