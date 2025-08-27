@@ -42,7 +42,7 @@ DRAWABLES=\
     $(DRAWABLE_DIR)/greenled.png \
     $(DRAWABLE_DIR)/grayled.png
 
-GRADLEW=JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 bash ./gradlew --no-daemon
+GRADLEW=JAVA_HOME=@JVM@ bash ./gradlew --no-daemon
 
 LAYOUTS=$(LAYOUT_DIR)/*.xml
 MENUS=$(MENU_DIR)/*.xml
