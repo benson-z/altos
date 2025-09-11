@@ -126,10 +126,9 @@ static void
 _ao_button_init(uint8_t b)
 {
 	uint32_t	m = ao_arch_irqsave();
-	uint8_t value = _ao_button_get(b);
-	ao_button_state[b].value = value;
-	ao_button_state[b].time = ao_time();
-	ao_button_queue(b, value);
+	/* let the regular button check code figure out the initial state */
+	ao_button_state[b].value = 2;
+	ao_button_state[b].time = ao_time() - 2 * AO_BUTTON_DEBOUNCE_INTERVAL;
 	ao_arch_irqrestore(m);
 
 }
