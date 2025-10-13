@@ -183,6 +183,9 @@ _ao_lco_info(const char *format, ...)
 	info_y += INFO_STEP_Y;
 }
 
+#define _stringify(x) #x
+#define stringify(x) _stringify(x)
+
 static void
 _ao_lco_show_lco_info(void)
 {
@@ -200,7 +203,7 @@ _ao_lco_show_lco_info(void)
 	_ao_lco_info("%s", ao_product);
 	_ao_lco_info("Serial: %d", ao_serial_number);
 	_ao_lco_info("Battery: %sV", battery);
-	_ao_lco_info("Version: %s", ao_version);
+	_ao_lco_info("Version: %." stringify(AO_MAX_VERSION) "s", ao_version);
 	_ao_lco_info("Callsign: %s", ao_config.callsign);
 	_ao_lco_info("Frequency: %ld.%03d",
 		     ao_config.frequency / 1000,
