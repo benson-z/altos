@@ -64,3 +64,5 @@ codespan:
   font_family: DejaVu Sans Mono
 code:
   font_family: DejaVu Sans Mono
+table:
+  font-size: 9
