@@ -21,8 +21,8 @@
 	|1MB
 	|10mW
 	|3.7V
-	|MCP73831/2 +
-        500mA
+	|MAX1555 +
+        100mA
 
 	|TeleMetrum +
 	v1.1
@@ -35,8 +35,8 @@
 	|2MB
 	|10mW
 	|3.7V
-	|MCP73831/2 +
-        500mA
+	|MAX1555 +
+        100mA
 
 	|TeleMetrum +
 	v1.2
@@ -49,8 +49,8 @@
 	|2MB
 	|10mW
 	|3.7V
-	|MCP73831/2 +
-        500mA
+	|MAX1555 +
+        100mA
 
 	|TeleMetrum +
 	v2.0
