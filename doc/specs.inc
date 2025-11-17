@@ -1,5 +1,5 @@
 [appendix]
-== Altus Metrum Hardware Specifications
+== Hardware Specifications
 
 	Here's the full set of Altus Metrum products, both in
 	production and retired.
