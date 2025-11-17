@@ -1,15 +1,27 @@
 == Using TeleGPS Hardware
 
-	=== Hooking Up Lithium Polymer Batteries
+	=== Hooking Up a Battery
 
-		TeleGPS has a two pin JST PH series connector to connect up
-		a single-cell Lithium Polymer cell (3.7V nominal). You can
-		purchase matching batteries from the Altus Metrum store, or
-		other vendors, or you can make your own. Pin 1 of the
-		connector is positive, pin 2 is negative. Spark Fun sells a
-		cable with the connector attached, which they call a
+		TeleGPS has a two pin JST PH series connector intended for
+		connection of a single-cell Lithium Polymer cell (3.7V
+		nominal). We recommend using the batteries sold by Altus
+		Metrum.
+
+		You can purchase 1S LiPo batteries from other vendors, but
+		note the warning below.  If you are prohibited from using
+		lithium polymer batteries for some reason, we believe 3.7
+		volt nominal cylindrical lithium ion cells in 14500 or 18650
+		form will work, but have not tested this ourselves.  Since
+		TeleGPS does not control pyro events, both protected and
+		unprotected cells will work.
+
+		If you're not using batteries sold by Altus Metrum, on the
+		white JST connector, pin 1 is positive (square pad),
+		pin 2 is negative. Spark Fun sells a suitable cable with the
+		connector pre-attached (crimping pins for these connectors
+		is hard to do well, we recommend letting someone professional
+		do it!), which they call a
 		link:https://www.sparkfun.com/products/9914[JST Jumper 2 Wire Assembly]
-
 
 		[WARNING]
 		Many RC vendors also sell lithium polymer batteries with

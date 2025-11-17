@@ -12,15 +12,28 @@
 		leads, the pyro leads and the battery leads. This reduces
 		interference through a mechanism called common mode rejection.
 
-	=== Hooking Up Lithium Polymer Batteries
+	=== Hooking Up Batteries
 
 		All Altus Metrum flight computers have a two pin JST PH
-		series connector to connect up a single-cell Lithium Polymer
-		cell (3.7V nominal). You can purchase matching batteries
-		from the Altus Metrum store, or other vendors, or you can
-		make your own. Pin 1 of the connector is positive, pin 2 is
-		negative. Spark Fun sells a cable with the connector
-		attached, which they call a
+		series connector intended for connection of a single-cell
+		Lithium Polymer (LiPo) cell (3.7V nominal). We recommend
+		using the batteries sold by Altus Metrum.
+
+		You can purchase 1S LiPo batteries from other vendors, but
+		note the warnings below.  If you are prohibited from using
+		lithium polymer batteries for some reason, we believe 3.7
+		volt nominal cylindrical lithium ion cells in 14500 or 18650
+		form will work, but have not tested this ourselves.  To avoid
+		problems during pyro events, use unprotected cells with our
+		flight computers.  Protected cells may be used with non-pyro
+		devices like TeleGPS or EasyMotor.
+
+		If you're not using batteries sold by Altus Metrum, on the
+		white JST connector, pin 1 is positive (square pad),
+		pin 2 is negative. Spark Fun sells a suitable cable with the
+		connector pre-attached (crimping pins for these connectors
+		is hard to do well, we recommend letting someone professional
+		do it!), which they call a
 		link:https://www.sparkfun.com/products/9914[JST Jumper 2 Wire Assembly]
 
 		[WARNING]
@@ -28,6 +41,13 @@
 		this same connector. All that we have found use the opposite
 		polarity, and if you use them that way, you will damage or
 		destroy the flight computer.
+
+		[WARNING]
+		Most LiPo batteries from sources other than Altus Metrum have
+		protection circuit boards, the behavior of which may be
+		problematic during pyro events.  See the How-To Documents at
+		link:https://altusmetrum.org/Documents[Misc Documents]
+		for details on how to remove such protection boards.
 
 	=== Hooking Up Pyro Charges
 
