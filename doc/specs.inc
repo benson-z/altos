@@ -300,6 +300,62 @@
 
 	endif::easymega[]
 
+	ifdef::telegps[]
+
+	|TeleGPS +
+	v1.0
+	|-
+	|-
+	|uBlox +
+	Max-7Q
+	|-
+	|2MB
+	|10mW
+	|3.7V
+	|MCP73831/2 +
+	500mA
+
+	|TeleGPS +
+	v2.0
+	|-
+	|-
+	|uBlox +
+	Max-7Q
+	|-
+	|2MB
+	|40mW
+	|3.7V
+	|MCP73831/2 +
+	400mA
+
+	|TeleGPS +
+	v3.0
+	|-
+	|-
+	|uBlox +
+	Max-10S
+	|-
+	|2MB
+	|40mW
+	|3.7V
+	|MCP73831/2 +
+	400mA
+
+	|TeleGPS +
+	v4.0
+	|-
+	|-
+	|uBlox +
+	Max-10S
+	|-
+	|2MB
+	|40mW
+	|3.7V
+	|MCP73831/2 +
+	400mA
+
+	endif::telegps[]
+
 	ifdef::easytimer[]
 
 	|EasyTimer +

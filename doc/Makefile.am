@@ -212,7 +212,7 @@ TELEGPS_INC_FILES=\
 	telegps-using.inc \
 	telegps-system-operation.inc \
 	telegps-application.inc \
-	telegps-specs.inc \
+	specs.inc \
 	telegps-updating-firmware.inc \
 	telegps-release-notes.inc \
 	$(COMMON_INC_FILES)
