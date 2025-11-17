@@ -44,10 +44,18 @@
 
 		[WARNING]
 		Most LiPo batteries from sources other than Altus Metrum have
-		protection circuit boards, the behavior of which may be
-		problematic during pyro events.  See the How-To Documents at
+		protection circuit boards, the behavior of which may cause
+		power to be completely shut off during a pyro event and not
+		come back on until the board is power-cycled after flight.
+		See the How-To Documents at
 		link:https://altusmetrum.org/Documents[Misc Documents]
 		for details on how to remove such protection boards.
+
+		Products that include a battery charger employ a
+		constant-current / constant-voltage charge algorithm with
+		preconditioning, charge termination, and thermal protection.
+		The constant voltage phase is fixed at 4.2V, the constant
+		current phase is set for 400mA.
 
 	=== Hooking Up Pyro Charges
 

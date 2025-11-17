@@ -29,6 +29,12 @@
 		polarity, and if you use them that way, you will damage or
 		destroy TeleGPS.
 
+		The battery charger built in to TeleGPS employs a
+		constant-current / constant-voltage charge algorithm with
+		preconditioning, charge termination, and thermal protection.  
+		The constant voltage phase is fixed at 4.2V, the constant 
+		current phase is set for 400mA.
+
 	=== On-board Data Recording
 
 		TeleGPS logs GPS data at a user-configurable
