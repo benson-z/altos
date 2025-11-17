@@ -444,9 +444,9 @@
 	Main pyro +
 	Battery +
 	Switch
-	|0.8 inch (2.03cm)
-	|1½ inch (3.81cm)
-	|24mm coupler
+	|½ inch (1.27cm)
+	|1.67 inch (4.24cm)
+	|18mm coupler
 	endif::telemini[]
 
 	ifdef::easymini[]
