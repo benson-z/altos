@@ -33,7 +33,8 @@
 		constant-current / constant-voltage charge algorithm with
 		preconditioning, charge termination, and thermal protection.  
 		The constant voltage phase is fixed at 4.2V, the constant 
-		current phase is set for 400mA.
+		current phase varies by product version, and can be found in
+		<<_hardware_specifications>>.
 
 	=== On-board Data Recording
 
