@@ -31,7 +31,7 @@ Keith Packard <keithp@keithp.com>; Bdale Garbee <bdale@gag.com>
 
 	include::handling.adoc[]
 
-	include::telegps-specs.adoc[]
+	include::specs.adoc[]
 
 	include::telegps-updating-firmware.adoc[]
 

@@ -10,7 +10,8 @@
 	|Device | Barometer | Z-axis accel | GPS | 3D sensors | Storage | RF Output | Battery | Battery Charger
 
 	ifdef::telemetrum[]
-	|TeleMetrum v1.0
+	|TeleMetrum +
+	v1.0
 	|MP3H6115 +
 	10km (33k')
 	|MMA2202 +
@@ -20,9 +21,11 @@
 	|1MB
 	|10mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMetrum v1.1
+	|TeleMetrum +
+	v1.1
 	|MP3H6115 +
 	10km (33k')
 	|MMA2202 +
@@ -32,9 +35,11 @@
 	|2MB
 	|10mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMetrum v1.2
+	|TeleMetrum +
+	v1.2
 	|MP3H6115 +
 	10km (33k')
 	|ADXL78 +
@@ -44,9 +49,11 @@
 	|2MB
 	|10mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMetrum v2.0
+	|TeleMetrum +
+	v2.0
 	|MS5607 +
 	30km (100k')
 	|MMA6555 +
@@ -57,9 +64,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMetrum v3.0
+	|TeleMetrum +
+	v3.0
 	|MS5607 30km (100k')
 	|ADXL375 +
 	200g
@@ -69,9 +78,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
-	|TeleMetrum v4.0
+	|TeleMetrum +
+	v4.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -82,11 +93,14 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
 	endif::telemetrum[]
 	ifdef::telemini[]
-	|TeleMini v1.0
+
+	|TeleMini +
+	v1.0
 	|MP3H6115 +
 	10km (33k')
 	|-
@@ -97,7 +111,8 @@
 	|3.7V
 	|-
 
-	|TeleMini v3.0
+	|TeleMini +
+	v3.0
 	|MS5607 +
 	30km (100k')
 	|-
@@ -110,7 +125,9 @@
 
 	endif::telemini[]
 	ifdef::easymini[]
-	|EasyMini v1.0-v3.0
+
+	|EasyMini +
+	v1.0-v3.0
 	|MS5607 +
 	30km (100k')
 	|-
@@ -123,7 +140,9 @@
 
 	endif::easymini[]
 	ifdef::telemega[]
-	|TeleMega v1.0
+
+	|TeleMega +
+	v1.0
 	|MS5607 +
 	30km (100k')
 	|MMA6555 +
@@ -135,9 +154,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMega v2.0
+	|TeleMega +
+	v2.0
 	|MS5607 +
 	30km (100k')
 	|MMA6555 +
@@ -149,9 +170,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMega v3.0
+	|TeleMega +
+	v3.0
 	|MS5607 +
 	30km (100k')
 	|MMA6555 +
@@ -162,9 +185,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|TeleMega v4.0
+	|TeleMega +
+	v4.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -175,9 +200,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
-	|TeleMega v5.0
+	|TeleMega +
+	v5.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -189,9 +216,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
-	|TeleMega v6.0
+	|TeleMega +
+	v6.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -203,9 +232,11 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
-	|TeleMega v7.0
+	|TeleMega +
+	v7.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -217,11 +248,14 @@
 	|8MB
 	|40mW
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
 	endif::telemega[]
 	ifdef::easymega[]
-	|EasyMega v1.0
+
+	|EasyMega +
+	v1.0
 	|MS5607 +
 	30km (100k')
 	|MMA6555 +
@@ -232,9 +266,11 @@
 	|8MB
 	|-
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        500mA
 
-	|EasyMega v2.0
+	|EasyMega +
+	v2.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -244,9 +280,11 @@
 	|8MB
 	|-
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
-	|EasyMega v3.0
+	|EasyMega +
+	v3.0
 	|MS5607 +
 	30km (100k')
 	|ADXL375 +
@@ -257,12 +295,71 @@
 	|8MB
 	|-
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
 	endif::easymega[]
 
+	ifdef::telegps[]
+
+	|TeleGPS +
+	v1.0
+	|-
+	|-
+	|uBlox +
+	Max-7Q
+	|-
+	|2MB
+	|10mW
+	|3.7V
+	|MCP73831/2 +
+	500mA
+
+	|TeleGPS +
+	v2.0
+	|-
+	|-
+	|uBlox +
+	Max-7Q
+	|-
+	|2MB
+	|40mW
+	|3.7V
+	|MCP73831/2 +
+	400mA
+
+	|TeleGPS +
+	v3.0
+	|-
+	|-
+	|uBlox +
+	Max-10S
+	|-
+	|2MB
+	|40mW
+	|3.7V
+	|MCP73831/2 +
+	400mA
+
+	|TeleGPS +
+	v4.0
+	|-
+	|-
+	|uBlox +
+	Max-10S
+	|-
+	|2MB
+	|40mW
+	|3.7V
+	|MCP73831/2 +
+	400mA
+
+	endif::telegps[]
+
 	ifdef::easytimer[]
-	|EasyTimer v1.0
+
+	|EasyTimer +
+	v1.0
 	|-
 	|16g
 	|-
@@ -272,7 +369,8 @@
 	|3.7-12V
 	|-
 
-	|EasyTimer v2.0
+	|EasyTimer +
+	v2.0
 	|-
 	|24g
 	|-
@@ -286,7 +384,9 @@
 	endif::easytimer[]
 	
 	ifdef::easymotor[]
-	|EasyMotor v3.0
+
+	|EasyMotor +
+	v3.0
 	|-
 	|ADXL375 +
 	200g
@@ -295,7 +395,8 @@
 	|8MB
 	|-
 	|3.7V
-	|400mA
+	|MCP73831/2 +
+        400mA
 
 	endif::easymotor[]
 	
@@ -310,8 +411,14 @@
 
 	ifdef::telemetrum[]
 	|TeleMetrum
-	|Antenna Debug Companion USB Battery
-	|Apogee pyro Main pyro Switch
+	|Antenna +
+	Debug +
+	Companion +
+	USB +
+	Battery
+	|Apogee pyro +
+	Main pyro +
+	Switch
 	|1 inch (2.54cm)
 	|2 ¾ inch (6.99cm)
 	|29mm coupler
@@ -319,15 +426,24 @@
 
 	ifdef::telemini[]
 	|TeleMini v1.0
-	|Antenna Debug Battery
-	|Apogee pyro Main pyro
+	|Antenna +
+	Debug +
+	Battery
+	|Apogee pyro +
+	Main pyro
 	|½ inch (1.27cm)
 	|1½ inch (3.81cm)
 	|18mm coupler
 
 	|TeleMini v2.0
-	|Antenna Debug USB Battery
-	|Apogee pyro Main pyro Battery Switch
+	|Antenna +
+	Debug +
+	USB +
+	Battery
+	|Apogee pyro +
+	Main pyro +
+	Battery +
+	Switch
 	|0.8 inch (2.03cm)
 	|1½ inch (3.81cm)
 	|24mm coupler
@@ -335,8 +451,12 @@
 
 	ifdef::easymini[]
 	|EasyMini
-	|Debug USB Battery
-	|Apogee pyro Main pyro Battery
+	|Debug +
+	USB +
+	Battery
+	|Apogee pyro +
+	Main pyro +
+	Battery
 	|0.8 inch (2.03cm)
 	|1½ inch (3.81cm)
 	|24mm coupler
@@ -344,8 +464,16 @@
 
 	ifdef::telemega[]
 	|TeleMega
-	|Antenna Debug Companion USB Battery
-	|Apogee pyro Main pyro Pyro A-D Switch Pyro battery
+	|Antenna +
+	Debug +
+	Companion +
+	USB +
+	Battery
+	|Apogee pyro +
+	Main pyro +
+	Pyro A-D +
+	Switch +
+	Pyro battery
 	|1¼ inch (3.18cm)
 	|3¼ inch (8.26cm)
 	|38mm coupler
@@ -353,8 +481,15 @@
 
 	ifdef::easymega[]
 	|EasyMega
-	|Debug Companion USB Battery
-	|Apogee pyro Main pyro Pyro A-D Switch Pyro battery
+	|Debug +
+	Companion +
+	USB +
+	Battery
+	|Apogee pyro +
+	Main pyro +
+	Pyro A-D +
+	Switch +
+	Pyro battery
 	|1¼ inch (3.18cm)
 	|2¼ inch (5.62cm)
 	|38mm coupler
@@ -362,8 +497,12 @@
 
 	ifdef::easytimer[]
 	|EasyTimer
-	|Debug USB Battery
-	|Pyro A Pyro B Battery
+	|Debug +
+	USB +
+	Battery
+	|Pyro A +
+	Pyro B +
+	Battery
 	|0.8 inch (2.03cm)
 	|1½ inch (3.81cm)
 	|24mm coupler
@@ -371,8 +510,13 @@
 
 	ifdef::easymotor[]
 	|EasyMotor
-	|Debug USB
-	|+5V Pres GND Switch Battery
+	|Debug +
+	USB
+	|+5V +
+	Pres +
+	GND +
+	Switch +
+	Battery
 	|0.8 inch (2.03cm)
 	|1½ inch (3.81cm)
 	|24mm coupler
