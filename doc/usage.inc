@@ -341,27 +341,6 @@
 		circuit on our product only controls current flow from the 
 		the primary or system battery!
 
-
-	=== Using a Different Kind of Battery
-
-		EasyMini
-		ifdef::easytimer[and EasyTimer are]
-		ifndef::easytimer[is]
-		designed to use either a
-		lithium polymer battery or any other battery producing
-		between 4 and 12 volts, such as a rectangular 9V
-		battery.
-
-		ifdef::telemega,easymega,telemetrum,telemini[]
-		[WARNING]
-		ifdef::telemini[TeleMini, ]
-		TeleMega, EasyMega and TeleMetrum are only designed to
-		operate off a single-cell Lithium Polymer battery and
-		cannot be used with any other kind. Connecting a
-		different kind of battery to any of these will destroy
-		the board.
-		endif::telemega,easymega,telemetrum,telemini[]
-
 	=== Using Packet Link Mode
 
 		All AltusMetrum flight computers that have a radio can
